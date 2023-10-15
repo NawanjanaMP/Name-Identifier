@@ -247,9 +247,9 @@ def parse_contents(contents,filename):
             # Assume that the user uploaded a CSV file
             df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
             # print(df)
-        elif 'xls' in filename:
-            # Assume that the user uploaded an excel file
-            df = pd.read_excel(io.BytesIO(decoded))
+        # elif 'xls' in filename:
+        #     # Assume that the user uploaded an excel file
+        #     df = pd.read_excel(io.BytesIO(decoded))
     except Exception as e:
         print(e)
         return html.Div([
@@ -283,9 +283,9 @@ def update_output(contents, filename):
                 if 'csv' in name:
                     # Assume that the user uploaded a CSV file
                     df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
-                elif 'xls' in name:
-                    # Assume that the user uploaded an excel file
-                    df = pd.read_excel(io.BytesIO(decoded))
+                # elif 'xls' in name:
+                #     # Assume that the user uploaded an excel file
+                #     df = pd.read_excel(io.BytesIO(decoded))
                 content_list.append(
                     dash_table.DataTable(
                         data=df.to_dict('records'),
