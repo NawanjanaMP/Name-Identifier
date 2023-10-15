@@ -200,6 +200,24 @@ app.layout = dbc.Container([
                                             {'name': 'Semantic Score', 'id': 'Semantic Score'}
                                         ],
                                         data=[],
+                                        style_data_conditional=[
+                                                    {
+                                                        'if': {
+                                                            'column_id': 'Fuzzy Score',
+                                                            'filter_query': '{Fuzzy Score} < 45'
+                                                        },
+                                                        'backgroundColor': 'red',
+                                                        'color': 'white'
+                                                    },
+                                                    {
+                                                        'if': {
+                                                            'column_id': 'Semantic Score',
+                                                            'filter_query': '{Semantic Score} < 45'
+                                                        },
+                                                        'backgroundColor': 'red',
+                                                        'color': 'white'
+                                                    }
+                                                ],
                                     )
                                 ]
                             )
